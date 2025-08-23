@@ -14,6 +14,7 @@ Timeline:
 - Start of Problem 3 at Aug 21st, 2025 on 23:28:00 (GMT +7)
 - End of Problem 3 at Aug 22nd, 2025 on 00:10:00 (GMT +7)
 - Updating Problem 2 UI/UX at Aug 22nd, 2025 on 00:10:00 (GMT +7)
+- Finished updating Problem 2 UI/UX at Aug 22nd, 2025 on 1:06:00 (GMT +7)
 
 ## Pre-requisites
 
