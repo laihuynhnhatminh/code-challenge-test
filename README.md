@@ -1,5 +1,11 @@
 # CODE CHALLENGE TEST
 
+This repo git logs will document the time that finished each problem based on the log commit messages.
+
+- Start of Problem 1 at Aug 21st, 2025 on 14:00:00 (GMT +7)
+- End of Problem 1 at Aug 21st, 2025 on 14:20:00 (GMT +7)
+- Start of Problem 2 at Aug 21st, 2025 on 14:22:00 (GMT +7)
+
 ## Install dependencies
 
 ```bash
