@@ -5,6 +5,13 @@ This repo git logs will document the time that finished each problem based on th
 - Start of Problem 1 at Aug 21st, 2025 on 14:00:00 (GMT +7)
 - End of Problem 1 at Aug 21st, 2025 on 14:20:00 (GMT +7)
 - Start of Problem 2 at Aug 21st, 2025 on 14:22:00 (GMT +7)
+- End of Problem 2 at Aug 21st, 2025 on 18:12:00 (GMT +7) - Might do some UI/UX improvements
+- Start of Problem 3 at Aug 21st, 2025 on 23:28:00 (GMT +7)
+
+## Pre-requisites
+
+- Node.js (version 22 or later)
+- pnpm (version 10 or later) - I like pnpm because it's fast and efficient.
 
 ## Install dependencies
 
