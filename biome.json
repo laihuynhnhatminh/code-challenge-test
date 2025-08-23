@@ -35,7 +35,10 @@
           "level": "warn",
           "options": {
             "ignoreNonDom": false,
-            "allowInvalidRoles": ["none", "text"]
+            "allowInvalidRoles": [
+              "none",
+              "text"
+            ]
           }
         },
         "useSemanticElements": "off",
@@ -56,7 +59,8 @@
       "correctness": {
         "noUnusedImports": "warn",
         "useJsxKeyInIterable": "off",
-        "useExhaustiveDependencies": "off"
+        "useExhaustiveDependencies": "off",
+        "useUniqueElementIds": "off"
       },
       "security": {
         "noDangerouslySetInnerHtml": "off",
@@ -78,8 +82,14 @@
           "level": "warn",
           "fix": "safe",
           "options": {
-            "attributes": ["className"],
-            "functions": ["cn", "clsx", "twMerge"]
+            "attributes": [
+              "className"
+            ],
+            "functions": [
+              "cn",
+              "clsx",
+              "twMerge"
+            ]
           }
         }
       }
@@ -141,7 +151,9 @@
                 "@config/**"
               ],
               ":BLANK_LINE:",
-              ["./**"]
+              [
+                "./**"
+              ]
             ]
           }
         }
