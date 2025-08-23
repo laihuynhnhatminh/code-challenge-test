@@ -1,0 +1,19 @@
+{
+  "name": "coding-challenge-repo",
+  "version": "1.0.0",
+  "description": "Coding challenge solutions with TypeScript and React apps",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --parallel run dev",
+    "build": "pnpm --recursive run build",
+    "test": "pnpm --recursive run test",
+    "format": "biome check --write --unsafe --verbose .",
+    "problem-1": "pnpm --filter problem-1 run dev",
+    "problem-2": "pnpm --filter problem-2 run dev",
+    "problem-3": "pnpm --filter problem-3 run dev"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.2.0",
+    "typescript": "~5.8.3"
+  }
+}
