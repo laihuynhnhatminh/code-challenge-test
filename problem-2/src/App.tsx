@@ -1,8 +1,13 @@
 import CurrencySwapPage from './components/currency-swap/currency-swap-page';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import { Input } from './components/ui/input';
 import { ThemeProvider } from './lib/theme-provider';
 
+/**
+ * ThemeProvider from ShadCN + Vite configuration
+ * @refer https://ui.shadcn.com/docs/dark-mode/vite
+ */
 function App() {
   return (
     <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">

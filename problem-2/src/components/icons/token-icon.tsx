@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 /**
  * I am waayyyyyy to lazy create a bunch of token icons so I will just get the SVG like this.
  */
-const TokenIcon = ({ currency }: { currency: string }) => {
+const TokenIcon = ({ currency, size }: { currency: string; size?: string }) => {
   const [imageSrc, setImageSrc] = useState(
     `https://raw.githubusercontent.com/Switcheo/token-icons/main/tokens/${currency}.svg`,
   );
@@ -32,14 +32,21 @@ const TokenIcon = ({ currency }: { currency: string }) => {
   }, [currency]);
 
   if (hasError) {
-    return <img src={imageSrc} width="24" height="24" alt={currency} />;
+    return (
+      <img
+        src={imageSrc}
+        width={size || '24'}
+        height={size || '24'}
+        alt={currency}
+      />
+    );
   }
 
   return (
     <img
       src={imageSrc}
-      width="24"
-      height="24"
+      width={size || '24'}
+      height={size || '24'}
       alt={currency}
       onError={handleError}
     />

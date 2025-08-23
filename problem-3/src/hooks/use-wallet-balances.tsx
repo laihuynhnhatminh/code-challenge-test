@@ -26,6 +26,7 @@ const FAKE_DATA: IWalletBalance[] = [
     amount: 500.0,
   },
 ];
+
 // MOCK VALUE HOOKS
 export function useWalletBalances() {
   return FAKE_DATA;

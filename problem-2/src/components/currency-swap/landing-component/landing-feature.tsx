@@ -1,4 +1,5 @@
 /** biome-ignore-all lint/correctness/useUniqueElementIds: Just a page to display with ids so we do motion */
+
 import {
   BarChart3,
   CheckCircle,
@@ -7,6 +8,7 @@ import {
   Shield,
   Zap,
 } from 'lucide-react';
+import { motion } from 'motion/react';
 
 import {
   Card,
@@ -18,7 +20,10 @@ import {
 
 export function LandingFeature() {
   return (
-    <section
+    <motion.section
+      initial={{ opacity: 0, y: -100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
       id="features"
       className="rounded-4xl border border-primary px-4 py-20"
     >
@@ -88,6 +93,6 @@ export function LandingFeature() {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

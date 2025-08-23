@@ -2,6 +2,7 @@ import { CheckIcon, ChevronsUpDownIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { type Path, useFormContext, useWatch } from 'react-hook-form';
 
+import { useFetchExchangeRate } from '../../hooks/use-fetch-exchange-rate';
 import { cn } from '../../lib/utils';
 import type { TExchangeRate } from '../../schemas/exchange-rate-schema';
 import type { IExchangeRate } from '../../types/exchange-rate';
@@ -19,15 +20,12 @@ import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
 
 interface ICurrencySwapSelectorProps {
   name: Path<TExchangeRate>;
-  exchangeMap: Map<string, IExchangeRate>;
 }
 
-export function CurrencySwapSelector({
-  name,
-  exchangeMap,
-}: ICurrencySwapSelectorProps) {
+export function CurrencySwapSelector({ name }: ICurrencySwapSelectorProps) {
   const [open, setOpen] = useState(false);
   const { control, setValue } = useFormContext<TExchangeRate>();
+  const { exchangeRate } = useFetchExchangeRate();
   const currentCurrency = useWatch({
     control,
     name,
@@ -36,18 +34,18 @@ export function CurrencySwapSelector({
   // Trigger only once for init
   useEffect(() => {
     if (!currentCurrency) {
-      const hasETH = exchangeMap.has('ETH');
-      const hasUSDC = exchangeMap.has('USDC');
+      const hasETH = exchangeRate.has('ETH');
+      const hasUSDC = exchangeRate.has('USDC');
       const isFromCurrency = name === 'fromCurrency';
       const defaultFromCurrency = hasETH
         ? 'ETH'
-        : Array.from(exchangeMap.keys())[0];
+        : Array.from(exchangeRate.keys())[0];
       const defaultToCurrency = hasUSDC
         ? 'USDC'
-        : Array.from(exchangeMap.keys())[0];
+        : Array.from(exchangeRate.keys())[0];
       setValue(name, isFromCurrency ? defaultFromCurrency : defaultToCurrency);
     }
-  }, [exchangeMap]);
+  }, [exchangeRate]);
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -59,7 +57,7 @@ export function CurrencySwapSelector({
           aria-expanded={open}
           className="h-full w-[200px] justify-between rounded-l-none"
         >
-          {currentCurrency && exchangeMap.has(currentCurrency as string) ? (
+          {currentCurrency && exchangeRate.has(currentCurrency as string) ? (
             <TokenIcon currency={currentCurrency as string} />
           ) : null}
           {currentCurrency ? currentCurrency : 'Select currency...'}
@@ -72,7 +70,7 @@ export function CurrencySwapSelector({
           <CommandList className="no-scrollbar">
             <CommandEmpty>No currency found.</CommandEmpty>
             <CommandGroup>
-              {Array.from(exchangeMap.values()).map((val) => (
+              {Array.from(exchangeRate.values()).map((val) => (
                 <CommandItem
                   key={val.currency}
                   value={val.currency}

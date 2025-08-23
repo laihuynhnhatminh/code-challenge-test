@@ -42,10 +42,6 @@ export function CurrencySwap() {
     control: form.control,
     name: 'fromValue',
   });
-  const toValue = useWatch({
-    control: form.control,
-    name: 'toValue',
-  });
 
   const handleFromCurrencyOnChange = (value: string) => {
     const fromValue = Number.parseFloat(value);
@@ -84,23 +80,17 @@ export function CurrencySwap() {
   };
 
   useEffect(() => {
-    if (toCurrency && toValue) {
-      handleToCurrencyOnChange(toValue.toString());
-    }
-  }, [toCurrency]);
-
-  useEffect(() => {
     if (fromCurrency && fromValue) {
       handleFromCurrencyOnChange(fromValue.toString());
     }
-  }, [fromCurrency]);
+  }, [fromCurrency, toCurrency]);
 
   return (
-    <Card className="order-1 max-w-xl bg-transparent p-4 text-primary md:order-2">
+    <Card className="max-w-xl bg-transparent p-4 text-primary">
       <Form {...form}>
         <form className="grid gap-4">
           <div className="grid gap-4">
-            <div className="flex items-center">
+            <div className="flex items-center bg-primary-foreground">
               <FormField
                 control={form.control}
                 name="fromValue"
@@ -120,18 +110,15 @@ export function CurrencySwap() {
                       min={0}
                       type="number"
                       placeholder="From Currency"
-                      className="typography-base-semibold border-0 bg-transparent text-xl placeholder:font-normal placeholder:text-base"
+                      className="typography-base-semibold select-all border-0 bg-transparent text-xl placeholder:font-normal placeholder:text-base"
                     />
                     <FormMessage />
                   </FormItem>
                 )}
               />
-              <CurrencySwapSelector
-                name="fromCurrency"
-                exchangeMap={exchangeRate}
-              />
+              <CurrencySwapSelector name="fromCurrency" />
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center bg-primary-foreground">
               <FormField
                 control={form.control}
                 name="toValue"
@@ -154,10 +141,7 @@ export function CurrencySwap() {
                   </FormItem>
                 )}
               />
-              <CurrencySwapSelector
-                name="toCurrency"
-                exchangeMap={exchangeRate}
-              />
+              <CurrencySwapSelector name="toCurrency" />
             </div>
           </div>
           <Button name="swap" type="button" onClick={handleSwapCurrency}>

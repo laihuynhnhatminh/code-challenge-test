@@ -1,8 +1,15 @@
+import { motion } from 'motion/react';
+
 import { Button } from '../../ui/button';
 
 export function LandingCTA() {
   return (
-    <section className="rounded-4xl border border-primary px-4 py-20">
+    <motion.section
+      initial={{ opacity: 0, y: -100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="rounded-4xl border border-primary px-4 py-20"
+    >
       <div className="mx-auto">
         <div className="mb-16 text-center">
           <h2 className="mb-4 font-bold text-3xl md:text-4xl">
@@ -25,6 +32,6 @@ export function LandingCTA() {
           </Button>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
